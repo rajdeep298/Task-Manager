@@ -3,7 +3,6 @@
 <html>
 <head>
     <title>Task Manager</title>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
