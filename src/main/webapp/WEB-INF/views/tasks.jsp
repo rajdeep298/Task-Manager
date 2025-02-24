@@ -128,6 +128,7 @@
             <input type="text" name="title" placeholder="Title" required>
             <input type="text" name="description" placeholder="Description">
             <input type="date" name="dueDate" required>
+            <input type="checkbox" name="completed" required>
             <button type="submit">Add Task</button>
         </form>
         <table>
@@ -148,7 +149,7 @@
                     <td>${task.dueDate}</td>
                     <td>${task.completed ? 'Completed' : 'Pending'}</td>
                     <td>
-                        <button class="btn edit-btn" onclick="openEditForm('${task.id}', '${task.title}', '${task.description}', '${task.dueDate}')">Edit</button>
+                        <button class="btn edit-btn" onclick="openEditForm('${task.id}', '${task.title}', '${task.description}', '${task.dueDate}', '${task.completed}')">Edit</button>
                         <button class="btn delete-btn"><a href="/tasks/delete/${task.id}" class="btn delete-btn">Delete</a></button>
                     </td>
                 </tr>
@@ -164,17 +165,19 @@
             <input type="text" name="title" id="editTitle" placeholder="Title" required>
             <input type="text" name="description" id="editDescription" placeholder="Description">
             <input type="date" name="dueDate" id="editDueDate" required>
+            <input type="checkbox" name="completed" id="editCompleted">
             <button type="submit">Update Task</button>
             <button type="button" onclick="closeEditForm()">Cancel</button>
         </form>
     </div>
 
     <script>
-        function openEditForm(id, title, description, dueDate) {
+        function openEditForm(id, title, description, dueDate, completed) {
             document.getElementById('editTaskId').value = id;
             document.getElementById('editTitle').value = title;
             document.getElementById('editDescription').value = description;
             document.getElementById('editDueDate').value = dueDate;
+            document.getElementById('editCompleted').checked = completed;
             document.getElementById('editFormContainer').style.display = 'block';
         }
 
